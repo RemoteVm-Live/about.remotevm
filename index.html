@@ -6,24 +6,17 @@
     <meta name="description" content="RemoteVM - پلتفرم پیشرفته برای لایو استریم سینمایی و تماس‌های تصویری با کیفیت بالا و بدون مرز">
     <meta name="keywords" content="لایو استریم, تماس تصویری, RemoteVM, ویدئو کنفرانس, استریمینگ">
     <meta name="author" content="RemoteVM Team">
-    <meta property="og:title" content="RemoteVM - درباره ما">
+    <meta property="og:title content="RemoteVM - درباره ما">
     <meta property="og:description" content="آینده ارتباطات دیجیتال با RemoteVM: لایو استریم با کیفیت 4K و تماس‌های تصویری امن و شفاف.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://about.remotevm.ir">
-    <meta property="og:image" content="https://remotevm.ir/assets/og-image.jpg">
+    <meta property="og:image" content="favicn.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="لوگوی RemoteVM">
+    <meta property="og:image-alt" content="لوگوی RemoteVM">
     <title>RemoteVM - لایو استریم و تماس تصویری</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.0/dist/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-	    	
-		    body, button, input, select, label, h2, h3, h4, span, div, p, a, li {
-	            font-family: 'Vazirmatn', sans-serif !important;
-	        }
-            
         :root {
             --primary-color: #00e1ff;
             --primary-color-rgb: 0, 225, 255;
@@ -244,7 +237,7 @@
         .section ul li {
             margin-bottom: 12px;
             position: relative;
-            padding-inline-start: 30px; /* فاصله مناسب از نقطه نشانگر */
+            padding-inline-start: 30px;
             display: flex;
             align-items: center;
         }
@@ -252,7 +245,7 @@
         .section ul li::before {
             content: '';
             position: absolute;
-            inset-inline-start: 0; /* نقطه در سمت راست (RTL) */
+            inset-inline-start: 0;
             top: 50%;
             transform: translateY(-50%);
             width: 10px;
@@ -331,26 +324,94 @@
             justify-content: center;
             gap: 20px;
         }
+
         .cta-button {
+            position: relative;
             display: inline-block;
-            background: linear-gradient(95deg, var(--secondary-color), var(--primary-color));
-            color: var(--text-highlight);
             padding: 14px 30px;
-            border-radius: 10px;
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
-            box-shadow: 0 5px 18px rgba(var(--primary-color-rgb), 0.35), 0 3px 8px rgba(var(--secondary-color-rgb), 0.2);
-            border: none;
-            cursor: pointer;
-            background-size: 200% 100%;
-            background-position: right bottom;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            transition: 0.5s;
+            overflow: hidden;
+            border-radius: 10px;
+            will-change: transform;
         }
         .cta-button:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.45), 0 5px 12px rgba(var(--secondary-color-rgb), 0.3);
-            background-position: left bottom;
+            background: var(--primary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 5px var(--primary-color),
+                        0 0 25px var(--primary-color),
+                        0 0 50px var(--primary-color),
+                        0 0 100px var(--primary-color);
+            transform: translateY(-4px);
+        }
+        .cta-button:nth-child(1) {
+            filter: hue-rotate(0deg);
+        }
+        .cta-button:nth-child(2) {
+            filter: hue-rotate(270deg);
+        }
+        .cta-button:nth-child(3) {
+            filter: hue-rotate(110deg);
+        }
+        .cta-button span {
+            position: absolute;
+            display: block;
+        }
+        .cta-button span:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color));
+            animation: animate1 1s linear infinite;
+        }
+        @keyframes animate1 {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+        .cta-button span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--primary-color));
+            animation: animate2 1s linear infinite;
+            animation-delay: 0.25s;
+        }
+        @keyframes animate2 {
+            0% { top: -100%; }
+            50%, 100% { top: 100%; }
+        }
+        .cta-button span:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, var(--primary-color));
+            animation: animate3 1s linear infinite;
+            animation-delay: 0.5s;
+        }
+        @keyframes animate3 {
+            0% { right: -100%; }
+            50%, 100% { right: 100%; }
+        }
+        .cta-button span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, var(--primary-color));
+            animation: animate4 1s linear infinite;
+            animation-delay: 0.75s;
+        }
+        @keyframes animate4 {
+            0% { bottom: -100%; }
+            50%, 100% { bottom: 100%; }
         }
         .cta-button:focus {
             outline: 2px solid var(--primary-color);
@@ -407,13 +468,13 @@
             inset-inline-end: -2px;
         }
         .custom-link {
-            color: #d22d90; /* رنگ دلخواه (مثال: نارنجی) */
-            text-decoration: none; /* حذف زیرخط پیش‌فرض لینک */
+            color: #d22d90;
+            text-decoration: none;
         }
         
         .custom-link:hover {
-            color: #ff8c42; /* رنگ متفاوت در حالت hover (اختیاری) */
-            text-shadow: 0 0 5px #ff8c42; /* افکت سایه در حالت hover (اختیاری) */
+            color: #ff8c42;
+            text-shadow: 0 0 5px #ff8c42;
         }        
         
         @keyframes glitchShake {
@@ -482,7 +543,7 @@
 
         /* Accessibility: Reduce motion for users who prefer it */
         @media (prefers-reduced-motion: reduce) {
-            .background-grid, .scanline-overlay, .logo-core, .glitch-text, .section, .content-container, .section-title::after, .section ul li::before, .cta-button {
+            .background-grid, .scanline-overlay, .logo-core, .main-title, .section, .content-container, .section-title::after {
                 animation: none !important;
                 transition: none !important;
             }
@@ -498,7 +559,7 @@
 
         <header class="header-section">
             <div class="logo-core">
-                <span>R</span>VM
+                <span>R.</span>V.M
             </div>
             <h1 class="main-title" data-text="به RemoteVM خوش آمدید">به RemoteVM خوش آمدید</h1>
             <p class="subtitle">پلتفرم نهایی شما برای لایو استریم با کیفیت سینمایی و تماس‌های تصویری بدون مرز</p>
@@ -515,30 +576,31 @@
                 </p>
             </section>
 
-                <section class="section" id="live-streaming" aria-labelledby="live-streaming-title">
-                    <h2 class="section-title" id="live-streaming-title">لایو استریم با کیفیت بی‌نظیر</h2>
-                    <p>
-                        کیفیت استریم شما، اعتبار شماست. ما این را درک می‌کنیم و به همین دلیل، زیرساختی را فراهم کرده‌ایم که <span class="strong">پایداری و وضوح تصویر</span> را در اولویت قرار می‌دهد:
-                    </p>
-                    <ul>
-                        <li><span class="strong">رزولوشن تا 4K و بالاتر:</span> محتوای خود را با جزئیاتی خیره‌کننده به نمایش بگذارید.</li>
-                        <li><span class="strong">تاخیر بسیار کم (Ultra-Low Latency):</span> تعامل آنی با مخاطبان، بدون وقفه‌های آزاردهنده.</li>
-                        <li><span class="strong">شبکه توزیع محتوای جهانی (CDN):</span> دسترسی سریع و پایدار برای بینندگان شما در هر کجای دنیا.</li>
-                        <li><span class="strong">سازگاری با نرم‌افزارهای محبوب:</span> اتصال آسان به OBS، XSplit و سایر ابزارهای استریمینگ.</li>
-                    </ul>
-                    <p class="glitch-text" data-text="با RemoteVM، هر پیکسل داستان شما را روایت می‌کند.">
-                        با RemoteVM، هر پیکسل داستان شما را روایت می‌کند.
-                    </p>
-                </section>
+            <section class="section" id="live-streaming" aria-labelledby="live-streaming-title">
+                <h2 class="section-title" id="live-streaming-title">لایو استریم با کیفیت بی‌نظیر</h2>
+                <p>
+                    کیفیت استریم شما، اعتبار شماست. ما این را درک می‌کنیم و به همین دلیل، زیرساختی را فراهم کرده‌ایم که <span class="strong">پایداری و وضوح تصویر</span> را در اولویت قرار می‌دهد:
+                </p>
+                <ul>
+                    <li><span class="strong">رزولوشن تا 4K و بالاتر:</span> محتوای خود را با جزئیاتی خیره‌کننده به نمایش بگذارید.</li>
+                    <li><span class="strong">تاخیر بسیار کم (Ultra-Low Latency):</span> تعامل آنی با مخاطبان، بدون وقفه‌های آزاردهنده.</li>
+                    <li><span class="strong">شبکه توزیع محتوای جهانی (CDN):</span> دسترسی سریع و پایدار برای بینندگان شما در هر کجوی دنیا.</li>
+                    <li><span class="strong">سازگاری با نرم‌افزارهای محبوب:</span> اتصال آسان به OBS، XSplit و سایر ابزارهای استریمینگ.</li>
+                </ul>
+                <p class="glitch-text" data-text="با RemoteVM، هر پیکسل داستان شما را روایت می‌کند.">
+                    با RemoteVM، هر پیکسل داستان شما را روایت می‌کند.
+                </p>
+            </section>
 
             <section class="section" id="video-calls" aria-labelledby="video-calls-title">
                 <h2 class="section-title" id="video-calls-title">تماس‌های تصویری شفاف و امن</h2>
-                <p> پلتفرم تماس تصویری ما برای جلسات کاری، آموزش آنلاین، و آزمون های هوم ادیشن و ارتباطات شخصی بهینه‌سازی شده است:
+                <p>
+                    ارتباط چهره به چهره، حتی از راه دور. پلتفرم تماس تصویری ما برای جلسات کاری، آموزش آنلاین، و ارتباطات شخصی بهینه‌سازی شده است:
                 </p>
                 <div class="info-card-grid">
                     <div class="info-card">
                         <h3 class="card-title">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5-0-2.24-5 5-5zm0-8c-1.66 0-3 1.34-3 3s1.34-3 3-3-1.34-3-3-3z"/></svg>
                             وضوح HD و صدای شفاف
                         </h3>
                         <p class="card-text">تجربه دیداری و شنیداری بی‌نقص، گویی در یک اتاق هستید.</p>
@@ -560,27 +622,45 @@
                 </div>
             </section>
             
-                <section class="section" id="getting-started" aria-labelledby="getting-started-title">
-                    <h2 class="section-title" id="getting-started-title">شروع به کار در چند دقیقه</h2>
-                    <p>پیوستن به جامعه RemoteVM و استفاده از خدمات ما آسان است:</p>
-                    <ol style="padding-inline-start: 0;">
-                        <li style="margin-bottom:10px; padding-inline-start:25px;">
-                            <strong class="highlight">وارد سایت RemoteVM بشید:</strong> <a href="https://Live.RemoteVM.ir" class="custom-link">Live.RemoteVM.ir</a>
-                        </li>
-                        <li style="margin-bottom:10px; padding-inline-start:25px;">
-                            <strong class="highlight">پلن خود را انتخاب کنید:</strong> از میان پلن‌های متنوع، گزینه‌ای را که با نیازهای شما همخوانی دارد، انتخاب نمایید.
-                        </li>
-                        <li style="margin-bottom:10px; padding-inline-start:25px;">
-                            <strong class="highlight">پیکربندی و اتصال:</strong> تنظیمات اولیه را انجام دهید و اولین استریم یا تماس خود را برقرار کنید!
-                        </li>
-                    </ol>
-                    <p>برای راهنمایی‌های جامع‌تر، به بخش <a href="/docs" class="highlight">مستندات فنی</a> ما مراجعه کنید。</p>
-                </section>
+            <section class="section" id="getting-started" aria-labelledby="getting-started-title">
+                <h2 class="section-title" id="getting-started-title">شروع به کار در چند دقیقه</h2>
+                <p>پیوستن به جامعه RemoteVM و استفاده از خدمات ما آسان است:</p>
+                <ol style="padding-inline-start: 0;">
+                    <li style="margin-bottom:10px; padding-inline-start:25px;">
+                        <strong class="highlight">وارد سایت RemoteVM بشید:</strong> <a href="https://Live.RemoteVM.ir" class="custom-link">Live.RemoteVM.ir</a>
+                    </li>
+                    <li style="margin-bottom:10px; padding-inline-start:25px;">
+                        <strong class="highlight">پلن خود را انتخاب کنید:</strong> از میان پلن‌های متنوع، گزینه‌ای که با نیازهای شما همخوانی دارد، انتخاب نمایید.
+                    </li>
+                    <li style="margin-bottom:10px; padding-inline-start:25px;">
+                        <strong class="highlight">پیکربندی و اتصال:</strong> تنظیمات اولیه را انجام دهید و اولین استریم یا تماس خود را برقرار کنید!
+                    </li>
+                </ol>
+                <p>برای راهنمایی‌های جامع‌تر، به بخش <a href="/docs" class="highlight">مستندات فنی</a> ما مراجعه کنید.</p>
+            </section>
 
             <div class="cta-button-container">
-                <a href="https://remotevm.ir" class="cta-button" target="_blank"> ساخت سریع لایو استریم </a>
-                <a href="https://room.remotevm.ir" class="cta-button" target="_blank"> ساخت استریم امن </a>
-                <a href="https://linkgen.remotevm.ir/" class="cta-button" target="_blank"> Link Generator</a>
+                <a href="https://remotevm.ir" class="cta-button" target="_blank">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    ساخت سریع لایو استریم
+                </a>
+                <a href="https://room.remotevm.ir" class="cta-button" target="_blank">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    ساخت استریم امن
+                </a>
+                <a href="https://live.remotevm.ir" class="cta-button" target="_blank">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    live.remotevm.ir
+                </a>
             </div>
         </main>
 
@@ -594,8 +674,6 @@
             entries.forEach(entry => {
                 entry.target.classList.toggle('visible', entry.isIntersecting);
             });
-        }, { threshold: 0.1 });
-
         // Observe background effects and glitch text
         const animatedElements = document.querySelectorAll('.background-grid, .scanline-overlay, .glitch-text');
         animatedElements.forEach(element => observer.observe(element));
@@ -616,6 +694,20 @@
             }
             setTimeout(typeMainTitle, 1200);
         }
+    </script
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/671b87e54304e3196ad81b01/1ium3ntg4';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
     </script>
+    <!--End of Tawk.to Script-->
+                                                  
 </body>
 </html>
